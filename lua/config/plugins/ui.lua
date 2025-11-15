@@ -1,5 +1,30 @@
 return {
     {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        lazy = false,
+        dependencies = { 'nvim-tree/nvim-web-devicons', "catppuccin/nvim" },
+        opts = {
+            options = {
+                themable = true,
+                separator_style = "slant",
+            },
+            highlights = require("catppuccin.special.bufferline").get_theme(),
+        },
+        keys = {
+            {
+                "<A-l>",
+                "<cmd>BufferLineCycleNext<CR>",
+                desc = "Cycle to Next Buffer",
+            },
+            {
+                "<A-h>",
+                "<cmd>BufferLineCyclePrev<CR>",
+                desc = "Cycle to Next Buffer",
+            },
+        },
+    },
+    {
         "j-hui/fidget.nvim",
         opts = {
             notification = { override_vim_notify = true },
@@ -63,7 +88,7 @@ return {
             { "<leader>sf", function() Snacks.picker.files() end, desc = "Find Files" },
             { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
             { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-            { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+            { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Active Buffers" },
             { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         },
     },
@@ -113,7 +138,7 @@ return {
             },
         },
         keys = {
-	    {
+	        {
                 "<leader>?",
                 function()
                     require("which-key").show({ global = false })

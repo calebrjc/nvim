@@ -10,7 +10,5 @@ return {
         statusline.section_location = function()
             return '%2l:%-2v'
         end
-
-	-- TODO(calebrjc): Configure 'mini.pick' like 'telescope.nvim' in 'kickstart.nvim'
     end,
 }
